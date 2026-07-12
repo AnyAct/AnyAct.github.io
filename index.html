@@ -6,12 +6,26 @@
   <title>AnyAct: Towards Human Reenactment of Character Motion From Video</title>
   <meta name="description" content="AnyAct project page." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="style.css?v=1fbdf02" />
+  <link rel="stylesheet" href="style.css?v=20260712-widow-check" />
 </head>
 <body>
-  <main class="page">
-    <header class="hero">
-      <h1>AnyAct: Towards Human Reenactment of Character Motion From Video</h1>
+  <nav class="site-nav" aria-label="Section navigation">
+    <a class="brand" href="#top">AnyAct</a>
+    <div class="nav-links">
+      <a href="#motivation">Motivation</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-content">
+      <p class="venue">arXiv 2026</p>
+      <h1>
+        <span class="title-line">AnyAct: Towards Human</span>
+        <span class="title-line">Reenactment of Character</span>
+        <span class="title-line">Motion From Video</span>
+      </h1>
       <div class="header-copy">
         <p class="authors">
           <span>Liuhan Chen<sup>*1</sup></span>,
@@ -30,179 +44,325 @@
           <span><sup>4</sup>Zhejiang University</span>
           <span><sup>5</sup>Pengcheng Laboratory</span>
         </p>
-        <p class="venue">arXiv 2026</p>
       </div>
       <nav class="links project-links" aria-label="Project links">
-        <a href="https://arxiv.org/abs/2605.15497" class="btn btn--primary"><i class="fas fa-file-pdf" aria-hidden="true"></i> Paper</a>
-        <a href="https://github.com/LiuhanChen-github/AnyAct" class="btn btn--inverse"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
-        <a href="https://youtu.be/pA14g99KsNY" class="btn btn--danger"><i class="fas fa-video" aria-hidden="true"></i> Video</a>
-        <a href="https://huggingface.co/LiuhanChen/AnyAct" class="btn btn--model"><i class="fas fa-database model-icon" aria-hidden="true"></i> Model</a>
+        <a href="https://arxiv.org/abs/2605.15497" class="btn"><i class="fas fa-file-pdf" aria-hidden="true"></i> Paper</a>
+        <a href="https://github.com/LiuhanChen-github/AnyAct" class="btn"><i class="fab fa-github" aria-hidden="true"></i> Code</a>
+        <a href="https://youtu.be/pA14g99KsNY" class="btn"><i class="fas fa-video" aria-hidden="true"></i> Video</a>
+        <a href="https://huggingface.co/LiuhanChen/AnyAct" class="btn"><i class="fas fa-database" aria-hidden="true"></i> Model</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
+  <main class="page">
+    <section class="paper-section motivation-section" id="motivation">
+      <div class="motivation-layout">
+        <div class="motivation-copy">
+          <p class="section-kicker">Motivation</p>
+          <h2>Animation often begins with motion inspiration.</h2>
+          <p class="story-lead">
+            Animators often begin by watching motion before designing motion. A kangaroo hop, a butterfly wing flap, or the periodic paw motion of a beckoning cat can suggest timing, rhythm, force, and attitude.
+          </p>
+          <p>
+            But in authoring, the goal is rarely to copy the source body literally. Artists want a plausible human performance: a starting point that keeps the dynamic impression of the reference while remaining easy to edit, control, and refine.
+          </p>
+        </div>
 
-    <section class="text-section" id="what-is-anyact">
-      <h2>What is AnyAct?</h2>
-      <p class="intro-copy">
-        AnyAct reenacts human motion from arbitrary character videos. It converts sparse 2D motion cues from animals, cartoons, objects, and stylized characters into plausible 3D human motions that preserve the source action semantics. Given monocular videos of non-human characters with diverse topologies, AnyAct reinterprets their characteristic motion patterns as plausible human performances rather than reproducing their source structures literally. Shown here are reenactments of (a) kangaroo-like jumping, (b) butterfly-like wing flapping, and (c) beckoning-cat-like waving.
+        <aside class="motivation-visual" aria-label="Motion inspiration concept illustration">
+          <figure>
+            <img src="assets/motivation-motion-inspiration.png" alt="Editorial illustration of an animator reference board translating animal and character motion studies into human performance poses" loading="lazy" />
+          </figure>
+        </aside>
+      </div>
+    </section>
+
+    <section class="paper-section signature-section" id="signature-examples">
+      <p class="section-kicker">Signature Examples</p>
+      <h2>What should survive when the body changes?</h2>
+      <p class="section-copy">
+        A kangaroo jump and a butterfly flap make the challenge concrete: the output should not copy the source body, but it should keep the timing, force, and rhythm that make the motion recognizable.
       </p>
-    </section>
-
-
-    <section id="showcase" aria-label="AnyAct showcase examples">
-      <div class="showcase-pair-grid">
-        <article class="result-card showcase-case">
-          <h4>Kangaroo-like jumping</h4>
+      <div class="signature-grid">
+        <article class="signature-card">
           <figure class="pair-result-figure">
-            <img src="assets/show/kangaroo_jump_pair_rowh_small.gif" alt="Kangaroo-like jumping" loading="lazy" />
+            <img src="assets/show/kangaroo_jump_pair_rowh_small.gif" alt="Kangaroo-like jumping reference and human reenactment" loading="lazy" />
           </figure>
+          <h3>Kangaroo-like jumping</h3>
+          <p>Force, recoil, and airborne timing become a plausible human jump.</p>
         </article>
-        <article class="result-card showcase-case">
-          <h4>Butterfly-like wing flapping</h4>
+        <article class="signature-card">
           <figure class="pair-result-figure">
-            <img src="assets/show/butterfly_flight_pair_rowh_small.gif" alt="Butterfly-like wing flapping" loading="lazy" />
+            <img src="assets/show/butterfly_flight_pair_rowh_small.gif" alt="Butterfly-like wing flapping reference and human reenactment" loading="lazy" />
           </figure>
-        </article>
-        <article class="result-card showcase-case">
-          <h4>Beckoning-cat-like waving</h4>
-          <figure class="pair-result-figure">
-            <img src="assets/show/lucky_cat_wave_pair_rowh_small.gif" alt="Beckoning-cat-like waving" loading="lazy" />
-          </figure>
+          <h3>Butterfly-like wing flapping</h3>
+          <p>Repeated local wing beats become rhythmic human arm motion.</p>
         </article>
       </div>
     </section>
 
-    <section class="text-section" id="method">
-      <h2>Method Overview</h2>
-      <div class="method-content">
-        <figure class="method-figure">
-          <img src="Method_Overview.png" alt="AnyAct method overview" loading="lazy" />
+    <section class="paper-section story-section" id="gap">
+      <p class="section-kicker">The Gap</p>
+      <h2>Why the usual tools break here.</h2>
+      <p class="narrative-intro">
+        A single character video can be full of motion personality, but it arrives without the clean structure that conventional pipelines expect.
+      </p>
+      <div class="gap-grid">
+        <article class="story-card">
+          <i class="fas fa-person-running" aria-hidden="true"></i>
+          <h3>Mocap assumes a human.</h3>
+          <p>Video-based mocap is built around human skeletons or body models, so a kangaroo, a toy, or a stylized character falls outside its usual shape space.</p>
+        </article>
+        <article class="story-card">
+          <i class="fas fa-share-nodes" aria-hidden="true"></i>
+          <h3>Retargeting assumes a source rig.</h3>
+          <p>Traditional retargeting often starts from structured 3D motion and a known mapping between bodies. In-the-wild videos usually provide neither.</p>
+        </article>
+        <article class="story-card">
+          <i class="fas fa-video" aria-hidden="true"></i>
+          <h3>Character videos give neither.</h3>
+          <p>A single clip may reveal timing, rhythm, and attitude, but not a reliable 3D reconstruction or a clean topology for the source character.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="paper-section insight-section" id="insight">
+      <div class="insight-layout">
+        <div class="insight-copy">
+          <p class="section-kicker">Key Insight</p>
+          <h2>Motion can survive without the body.</h2>
+          <p class="narrative-intro">
+            AnyAct does not try to recover the source character. Instead, it asks which part of the motion remains meaningful after the body changes.
+          </p>
+          <p>
+            Sparse local articulated cues, such as a limb swing, a repeated flap, or the rise-and-fall pattern of a jump, can carry the dynamic impression across very different topologies. A complete source reconstruction is not required; the motion idea remains.
+          </p>
+          <div class="cue-list" aria-label="Transferable motion cues">
+            <span>timing</span>
+            <span>rhythm</span>
+            <span>local articulation</span>
+            <span>dynamic impression</span>
+          </div>
+        </div>
+        <figure class="insight-figure">
+          <img src="assets/key-insight-motivation-labeled.png" alt="Paper motivation figure showing kangaroo joints and human joints aligned across motion frames" loading="lazy" />
         </figure>
-        <p class="method-copy">
-          Given reference videos of characters, AnyAct first extracts local sparse 2D joint trajectories as transferable motion cues from the input video using our model-ensemble-based Versatile Feature Extractor (VFE). These cues are then injected into a human motion generator (MoMask++) through the ControlNet-like 2D Local Adapter (2D-LA) to produce the initial human reenactments that follow the observed character dynamics.
-        </p>
       </div>
     </section>
 
+    <section class="paper-section method-story-section" id="method">
+      <p class="section-kicker">Method Story</p>
+      <h2>From character video to human motion.</h2>
+      <p class="narrative-intro">
+        AnyAct follows a simple handoff: find the motion cues that can transfer, turn them into local control, then let a human motion generator produce an editable first draft.
+      </p>
+      <div class="method-flow">
+        <div class="flow-step">
+          <span>01</span>
+          <h3>Keep only what can transfer</h3>
+          <p>VFE finds sparse 2D local trajectories using animal, human, or user-guided keypoint extraction, depending on the input character.</p>
+        </div>
+        <div class="flow-step">
+          <span>02</span>
+          <h3>Turn cues into control</h3>
+          <p>A ControlNet-like 2D Local Adapter converts those local trajectories into conditioning signals for MoMask++.</p>
+        </div>
+        <div class="flow-step">
+          <span>03</span>
+          <h3>Generate a first draft</h3>
+          <p>The output is a plausible human reenactment meant to be steered, edited, and refined in an authoring workflow.</p>
+        </div>
+      </div>
+      <figure class="method-figure method-figure--story">
+        <img src="Method_Overview.png" alt="AnyAct method overview" loading="lazy" />
+      </figure>
+    </section>
 
-    <section id="more-results">
-      <h2>More Results</h2>
-      <div class="more-pair-grid">
-        <article class="result-card pair-result-card">
-          <h4>Dancing with side-to-side swaying</h4>
+    <section class="paper-section design-section" id="design-moves">
+      <p class="section-kicker">Why It Works</p>
+      <h2>Three moves make sparse cues usable.</h2>
+      <div class="design-grid">
+        <article class="story-card design-card">
+          <span class="card-number">01</span>
+          <h3>Train from human motion only.</h3>
+          <p>Because paired character-video and human-motion examples are unavailable, AnyAct creates supervision by projecting human motion into augmented sparse 2D conditions.</p>
+        </article>
+        <article class="story-card design-card">
+          <span class="card-number">02</span>
+          <h3>Learn 2D control from 3D guidance.</h3>
+          <p>A 3D-conditioned branch first learns a cleaner motion relationship, then transfers that knowledge to the 2D branch used for monocular videos.</p>
+        </article>
+        <article class="story-card design-card">
+          <span class="card-number">03</span>
+          <h3>Separate local motion from travel.</h3>
+          <p>Local cues describe how parts move; root trajectory describes where the body goes. Separating them keeps the generated motion controllable.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="paper-section" id="results">
+      <p class="section-kicker">Results Gallery</p>
+      <h2>Reenactments across diverse characters.</h2>
+      <p class="section-copy">
+        Across animals, toys, and stylized characters, AnyAct preserves recognizable dynamics in readable human performances.
+      </p>
+      <div class="gallery-grid">
+        <article class="gallery-feature">
           <figure class="pair-result-figure">
             <img src="assets/more_pairs/ghost_dance_pair.gif" alt="Ghost dance reference video and generated human motion" loading="lazy" />
           </figure>
+          <div>
+            <p class="gallery-label">A floating rhythm becomes grounded.</p>
+            <h4>Lateral swaying dance</h4>
+            <p>A drifting source character becomes a grounded human dance, preserving the side-to-side rhythm rather than the source shape.</p>
+          </div>
         </article>
-        <article class="result-card pair-result-card">
-          <h4>Deer-like walking</h4>
-          <figure class="pair-result-figure">
-            <img src="assets/more_pairs/deer_walk_pair.gif" alt="Deer walk reference video and generated human motion" loading="lazy" />
-          </figure>
-        </article>
-        <article class="result-card pair-result-card">
-          <h4>Penguin-like walking</h4>
-          <figure class="pair-result-figure">
-            <img src="assets/more_pairs/penguin_walk_pair.gif" alt="Penguin walk reference video and generated human motion" loading="lazy" />
-          </figure>
-        </article>
-        <article class="result-card pair-result-card">
-          <h4>Monkey-like walking</h4>
-          <figure class="pair-result-figure">
-            <img src="assets/more_pairs/monkey_walk_pair.gif" alt="Monkey walk reference video and generated human motion" loading="lazy" />
-          </figure>
-        </article>
-        <article class="result-card pair-result-card">
-          <h4>Dinosaur-like walking</h4>
-          <figure class="pair-result-figure">
-            <img src="assets/more_pairs/dinosaur_walk_pair.gif" alt="Dinosaur walk reference video and generated human motion" loading="lazy" />
-          </figure>
-        </article>
-        <article class="result-card pair-result-card">
-          <h4>Seal-like walking with side-to-side swaying</h4>
-          <figure class="pair-result-figure">
-            <img src="assets/more_pairs/seal_walk_pair.gif" alt="Seal walk reference video and generated human motion" loading="lazy" />
-          </figure>
-        </article>
-        <article class="result-card pair-result-card">
-          <h4>Mechanical-spider-like in-place jumping</h4>
+
+        <div class="gallery-group">
+          <div class="gallery-group-copy">
+            <h3>Locomotion becomes human movement.</h3>
+            <p>Different gaits become readable human walks without requiring the original body plan.</p>
+          </div>
+          <div class="gallery-pair-grid">
+            <article class="gallery-tile">
+              <figure class="pair-result-figure">
+                <img src="assets/more_pairs/deer_walk_pair.gif" alt="Deer walk reference video and generated human motion" loading="lazy" />
+              </figure>
+              <h4>Deer-like walking</h4>
+              <p>lifted steps / light gait</p>
+            </article>
+            <article class="gallery-tile">
+              <figure class="pair-result-figure">
+                <img src="assets/more_pairs/penguin_walk_pair.gif" alt="Penguin walk reference video and generated human motion" loading="lazy" />
+              </figure>
+              <h4>Penguin-like walking</h4>
+              <p>short beats / torso sway</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="gallery-group">
+          <div class="gallery-group-copy">
+            <h3>Body attitude still matters.</h3>
+            <p>The reenactment keeps more than action labels: posture, weight, and stance remain part of the performance.</p>
+          </div>
+          <div class="gallery-pair-grid">
+            <article class="gallery-tile">
+              <figure class="pair-result-figure">
+                <img src="assets/more_pairs/monkey_walk_pair.gif" alt="Monkey walk reference video and generated human motion" loading="lazy" />
+              </figure>
+              <h4>Monkey-like walking</h4>
+              <p>low posture / arm-led weight</p>
+            </article>
+            <article class="gallery-tile">
+              <figure class="pair-result-figure">
+                <img src="assets/more_pairs/dinosaur_walk_pair.gif" alt="Dinosaur walk reference video and generated human motion" loading="lazy" />
+              </figure>
+              <h4>Dinosaur-like walking</h4>
+              <p>heavy stride / broad posture</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="gallery-group">
+          <div class="gallery-group-copy">
+            <h3>Rhythm and weight transfer too.</h3>
+            <p>Even when the source is a toy or a low-slung animal, local timing cues can become a human motion style.</p>
+          </div>
+          <div class="gallery-pair-grid">
+            <article class="gallery-tile">
+              <figure class="pair-result-figure">
+                <img src="assets/more_pairs/seal_walk_pair.gif" alt="Seal walk reference video and generated human motion" loading="lazy" />
+              </figure>
+              <h4>Seal-like lateral walking</h4>
+              <p>lateral rocking / side sway</p>
+            </article>
+            <article class="gallery-tile">
+              <figure class="pair-result-figure">
+                <img src="assets/more_pairs/robot_walk_pair.gif" alt="Robot walk reference video and generated human motion" loading="lazy" />
+              </figure>
+              <h4>Toy-robot lateral walking</h4>
+              <p>rigid cadence / crisp timing</p>
+            </article>
+          </div>
+        </div>
+
+        <article class="gallery-feature gallery-feature--stress">
           <figure class="pair-result-figure">
             <img src="assets/more_pairs/monster_jump_pair.gif" alt="Monster jump reference video and generated human motion" loading="lazy" />
           </figure>
-        </article>
-        <article class="result-card pair-result-card">
-          <h4>Toy-robot-like walking with side-to-side swaying</h4>
-          <figure class="pair-result-figure">
-            <img src="assets/more_pairs/robot_walk_pair.gif" alt="Robot walk reference video and generated human motion" loading="lazy" />
-          </figure>
+          <div>
+            <p class="gallery-label">A harder stress test.</p>
+            <h4>Mechanical spider-like jumping</h4>
+            <p>Repeated impacts and recoil are preserved as an in-place human jumping rhythm.</p>
+          </div>
         </article>
       </div>
     </section>
 
-    <section id="trajectory-editing">
-      <h2>Trajectory Control and Intuitive Editing</h2>
-      <div class="control-edit-list">
-        <article class="result-card control-edit-card">
-          <h4>Cat-like walking with forward and half-circle trajectory control</h4>
+    <section class="paper-section artist-control-section" id="artist-control">
+      <p class="section-kicker">Artist Control</p>
+      <h2>A starting point should stay editable.</h2>
+      <p class="narrative-intro">
+        AnyAct is designed for authoring, not just one-shot generation. The resulting human motion can be steered with trajectories and adjusted with intuitive edits.
+      </p>
+      <div class="artist-grid">
+        <article class="gallery-card gallery-card--wide">
           <figure class="pair-result-figure">
             <img src="assets/control_edit_pairs/cat_trajectory_control_pair.gif" alt="Cat-like walking with forward and half-circle trajectory control" loading="lazy" />
           </figure>
+          <div>
+            <h4>Trajectory control</h4>
+            <p>The same local motion can follow different global paths, such as walking forward or around a half-circle.</p>
+          </div>
         </article>
-        <article class="result-card control-edit-card">
-          <h4>Editing the height of human when perform kangaroo-like jumping</h4>
+        <article class="gallery-card">
           <figure class="pair-result-figure">
-            <img src="assets/control_edit_pairs/kangaroo_jump_height_edit_pair.gif" alt="Editing the height of human when perform kangaroo-like jumping" loading="lazy" />
+            <img src="assets/control_edit_pairs/kangaroo_jump_height_edit_pair.gif" alt="Editing human height during kangaroo-like jumping" loading="lazy" />
           </figure>
+          <div>
+            <h4>Editing jump height</h4>
+            <p>The artist can exaggerate or dampen the vertical impulse after generation.</p>
+          </div>
         </article>
-        <article class="result-card control-edit-card">
-          <h4>Editing the arm spread of human when perform penguin-like walking</h4>
+        <article class="gallery-card">
           <figure class="pair-result-figure">
-            <img src="assets/control_edit_pairs/penguin_arm_spread_edit_pair.gif" alt="Editing the arm spread of human when perform penguin-like walking" loading="lazy" />
+            <img src="assets/control_edit_pairs/penguin_arm_spread_edit_pair.gif" alt="Editing human arm spread during penguin-like walking" loading="lazy" />
           </figure>
+          <div>
+            <h4>Editing arm spread</h4>
+            <p>Simple pose-level edits change the style while preserving the source rhythm.</p>
+          </div>
         </article>
       </div>
     </section>
 
-
-    <section id="human-generalization">
-      <h2>Generalization to the reenactment of human characters.</h2>
-      <div class="human-pair-grid">
-        <article class="result-card human-card">
+    <section class="paper-section discussion-section" id="generalization-comparison">
+      <p class="section-kicker">Beyond the Main Setting</p>
+      <h2>The cue-based view also explains nearby cases.</h2>
+      <div class="discussion-grid">
+        <article class="discussion-card">
+          <h3>It can also reenact human-character videos.</h3>
+          <p>Although AnyAct is designed for non-human character videos, the same sparse-cue representation can also guide reenactment from human-character videos.</p>
           <figure class="pair-result-figure">
             <img src="assets/human_pairs/human_drunkman_walk_pair_v2.gif" alt="Human character reenactment example" loading="lazy" />
           </figure>
         </article>
-        <article class="result-card human-card">
-          <figure class="pair-result-figure">
-            <img src="assets/human_pairs/human_high_knees_pair_v2.gif" alt="Human character reenactment example" loading="lazy" />
-          </figure>
-        </article>
-      </div>
-    </section>
-
-
-    <section id="dancingbox-comparison">
-      <h2>Physical-Proxies-Based Reenactment (Comparsed to DancingBox)</h2>
-      <div class="dancingbox-pair-grid">
-        <article class="result-card dancingbox-card">
+        <article class="discussion-card">
+          <h3>A different setting from DancingBox.</h3>
+          <p>DancingBox studies a different capture setting with physical proxies, explicit ground cues, user interaction, and per-sample tuning. AnyAct targets ordinary monocular character videos without known topology or clean 3D source motion.</p>
           <figure class="pair-result-figure">
             <img src="assets/dancingbox_pairs/dancingbox_case1_pair.gif" alt="Physical-proxies-based reenactment comparison example" loading="lazy" />
           </figure>
         </article>
-        <article class="result-card dancingbox-card">
-          <figure class="pair-result-figure">
-            <img src="assets/dancingbox_pairs/dancingbox_case2_pair.gif" alt="Physical-proxies-based reenactment comparison example" loading="lazy" />
-          </figure>
-        </article>
       </div>
     </section>
 
-
-    <section class="text-section" id="bibtex">
-      <h2>Citation</h2>
+    <section class="paper-section text-section" id="bibtex">
+      <p class="section-kicker">Citation</p>
+      <h2>BibTeX</h2>
       <pre class="citation-box"><code>@article{chen2026anyact,
   title={AnyAct: Towards Human Reenactment of Character Motion From Video},
-  author={Chen, Liuhan and Zhong, Lei and Wang, Jiewei and Shuai, Qin and Yuan, Li and Fan, Leidong and Li, Qing and Liu, Kanglin},
+  author={Chen, Liuhan and Zhong, Lei and Wang, Jiawei and Shuai, Qin and Yuan, Li and Fan, Leidong and Li, Qing and Liu, Kanglin},
   journal={arXiv preprint arXiv:2605.15497},
   year={2026}
 }</code></pre>
