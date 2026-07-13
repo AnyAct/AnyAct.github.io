@@ -481,6 +481,13 @@ h4 {
   line-height: 1.62;
 }
 
+.discussion-card p a {
+  color: var(--section-green);
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .story-card h3 {
   margin: 0 0 12px;
 }
@@ -800,6 +807,13 @@ h4 {
   box-shadow: 0 18px 45px rgba(20, 28, 26, 0.06);
 }
 
+.discussion-card--wide {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.52fr) minmax(0, 1.48fr);
+  gap: 24px;
+  align-items: center;
+}
+
 .discussion-card h3 {
   margin-bottom: 12px;
   font-size: 20px;
@@ -807,6 +821,10 @@ h4 {
 
 .discussion-card figure {
   margin-top: 16px;
+}
+
+.discussion-card--wide figure {
+  margin-top: 0;
 }
 
 .method-content {
@@ -960,7 +978,8 @@ pre,
   }
 
   .gallery-feature,
-  .gallery-pair-grid {
+  .gallery-pair-grid,
+  .discussion-card--wide {
     grid-template-columns: 1fr;
   }
 

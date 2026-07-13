@@ -6,7 +6,7 @@
   <title>AnyAct: Towards Human Reenactment of Character Motion From Video</title>
   <meta name="description" content="AnyAct project page." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="style.css?v=20260712-widow-check" />
+  <link rel="stylesheet" href="style.css?v=20260713-route-polish" />
 </head>
 <body>
   <nav class="site-nav" aria-label="Section navigation">
@@ -286,6 +286,29 @@
           </div>
         </div>
 
+        <div class="gallery-group">
+          <div class="gallery-group-copy">
+            <h3>Human videos remain within reach.</h3>
+            <p>Although AnyAct is designed around non-human character videos, sparse local cues can also guide reenactment when the reference is already human.</p>
+          </div>
+          <div class="gallery-pair-grid">
+            <article class="gallery-tile">
+              <figure class="pair-result-figure">
+                <img src="assets/human_pairs/human_high_knees_pair_v2.gif" alt="High-knee human reference video and generated human motion" loading="lazy" />
+              </figure>
+              <h4>High-knee motion</h4>
+              <p>clear rhythm / human source</p>
+            </article>
+            <article class="gallery-tile">
+              <figure class="pair-result-figure">
+                <img src="assets/human_pairs/human_drunkman_walk_pair_v2.gif" alt="Human walking reference video and generated human motion" loading="lazy" />
+              </figure>
+              <h4>Human-character walking</h4>
+              <p>human reference / readable reenactment</p>
+            </article>
+          </div>
+        </div>
+
         <article class="gallery-feature gallery-feature--stress">
           <figure class="pair-result-figure">
             <img src="assets/more_pairs/monster_jump_pair.gif" alt="Monster jump reference video and generated human motion" loading="lazy" />
@@ -337,24 +360,17 @@
     </section>
 
     <section class="paper-section discussion-section" id="generalization-comparison">
-      <p class="section-kicker">Beyond the Main Setting</p>
-      <h2>The cue-based view also explains nearby cases.</h2>
-      <div class="discussion-grid">
-        <article class="discussion-card">
-          <h3>It can also reenact human-character videos.</h3>
-          <p>Although AnyAct is designed for non-human character videos, the same sparse-cue representation can also guide reenactment from human-character videos.</p>
-          <figure class="pair-result-figure">
-            <img src="assets/human_pairs/human_drunkman_walk_pair_v2.gif" alt="Human character reenactment example" loading="lazy" />
-          </figure>
-        </article>
-        <article class="discussion-card">
-          <h3>A different setting from DancingBox.</h3>
-          <p>DancingBox studies a different capture setting with physical proxies, explicit ground cues, user interaction, and per-sample tuning. AnyAct targets ordinary monocular character videos without known topology or clean 3D source motion.</p>
-          <figure class="pair-result-figure">
-            <img src="assets/dancingbox_pairs/dancingbox_case1_pair.gif" alt="Physical-proxies-based reenactment comparison example" loading="lazy" />
-          </figure>
-        </article>
-      </div>
+      <p class="section-kicker">Alternative Route</p>
+      <h2>Physical-proxy capture solves a different setup.</h2>
+      <article class="discussion-card discussion-card--wide">
+        <div>
+          <h3>DancingBox is a related but different route.</h3>
+          <p><a href="https://yyyyyhc.github.io/DancingBox-project-page/">DancingBox</a> uses constrained physical proxies with explicit ground cues, user interaction, and per-sample tuning. AnyAct instead targets ordinary monocular character videos without known topology or clean 3D source motion.</p>
+        </div>
+        <figure class="pair-result-figure">
+          <img src="assets/dancingbox_pairs/dancingbox_case1_pair.gif" alt="Physical-proxies-based reenactment comparison example" loading="lazy" />
+        </figure>
+      </article>
     </section>
 
     <section class="paper-section text-section" id="bibtex">
