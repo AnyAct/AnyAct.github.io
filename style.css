@@ -144,9 +144,9 @@ img {
   margin: 0 0 18px;
   color: var(--teal);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
