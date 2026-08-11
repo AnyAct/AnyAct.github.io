@@ -136,18 +136,19 @@ img {
   align-self: flex-end;
   width: min(1240px, calc(100% - 120px));
   margin: 0 auto;
-  padding: 126px 0 72px;
+  padding: 148px 0 72px;
 }
 
 .venue {
   width: fit-content;
-  margin: 0 0 18px;
+  margin: 0 0 24px;
   color: var(--teal);
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-  font-size: 15px;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: clamp(18px, 1.7vw, 22px);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1.25;
+  text-transform: none;
 }
 
 h1 {
@@ -940,6 +941,13 @@ pre,
 
   .hero-content {
     width: min(100% - 44px, var(--max));
+    padding-top: 126px;
+  }
+
+  .venue {
+    max-width: 100%;
+    font-size: 17px;
+    line-height: 1.35;
   }
 
   .showcase-pair-grid,
